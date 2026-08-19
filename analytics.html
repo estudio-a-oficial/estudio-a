@@ -41,126 +41,263 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-main);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             font-weight: 600;
+        }
+
+        .btn-nav-linkedin {
+            color: var(--accent-analytics) !important;
+            border: 1px solid var(--accent-analytics);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .hero-analytics {
             padding: 4rem 5% 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-analytics h1 {
             font-family: 'Cinzel', serif;
-            color: var(--accent-analytics);
             font-size: 2.5rem;
+            color: var(--accent-analytics);
             margin-bottom: 1rem;
         }
 
-        .container {
-            max-width: 1000px;
+        .section-container {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 3rem 5%;
         }
 
+        /* Carousel Styles */
+        .carousel-wrapper {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-analytics) var(--bg-card);
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: var(--accent-analytics);
+            border-radius: 4px;
+        }
+
+        .carousel-item {
+            flex: 0 0 320px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .carousel-item-content {
+            padding: 1.2rem;
+        }
+
+        .carousel-item-content h4 {
+            color: var(--accent-analytics);
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--accent-analytics);
+            border: 1px solid var(--accent-analytics);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn.prev { left: -15px; }
+        .carousel-btn.next { right: -15px; }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .service-card {
-            background: var(--bg-card);
-            padding: 1.8rem;
-            border-radius: 12px;
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            border-top: 4px solid var(--accent-analytics);
         }
 
         .service-card h3 {
-            color: var(--accent-analytics);
-            margin-bottom: 0.8rem;
-        }
-
-        .btn-contact {
-            display: inline-block;
-            background: var(--accent-analytics);
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
         footer {
             text-align: center;
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             background-color: #090D16;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .btn-linkedin-footer {
+            background-color: #0A66C2;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">ESTUDIO <span>A</span></a>
+        <a href="index.html" class="logo-area">
+            <img src="img/LogoAnalytics.png" alt="Estudio A Analytics" class="logo-img">
+        </a>
         <nav>
             <a href="index.html">Inicio</a>
             <a href="atelier.html">Atelier</a>
-            <a href="#contacto">Contacto</a>
+            <a href="https://www.linkedin.com/in/miguel-angel-mena-bello-b0655b177" target="_blank" class="btn-nav-linkedin">LinkedIn Profile</a>
         </nav>
     </header>
 
     <section class="hero-analytics">
-        <h1>Estudio A · Analytics</h1>
-        <p>Consultoría estratégica, inteligencia de negocios y optimización operativa.</p>
+        <h1>Analytics & Consultoría BI</h1>
+        <p>Transformamos datos complejos en decisiones estratégicas, automatización de procesos e infraestructura de inteligencia de negocios.</p>
     </section>
 
-    <div class="container">
-        <h2>Servicios Especializados</h2>
+    <!-- Carretera de Proyectos / Enfoque Visual -->
+    <div class="section-container">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; text-align: center;">Áreas de Impacto Visual</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="scrollCarousel('analytics-track', -300)">❮</button>
+            <div class="carousel-track" id="analytics-track">
+                
+                <div class="carousel-item">
+                    <img src="img/decisiones.jpg" alt="Toma de Decisiones">
+                    <div class="carousel-item-content">
+                        <h4>Toma de Decisiones</h4>
+                        <p>Tableros ejecutivos diseñados para la claridad de alto nivel.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/analisis.jpg" alt="Análisis de Datos">
+                    <div class="carousel-item-content">
+                        <h4>Análisis Avanzado</h4>
+                        <p>Modelado de información y métricas operativas clave.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/Estrategia.jpg" alt="Estrategia BI">
+                    <div class="carousel-item-content">
+                        <h4>Estrategia Institucional</h4>
+                        <p>Planificación basada en evidencia y automatización fiscal/procesos.</p>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel('analytics-track', 300)">❯</button>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Servicios Específicos</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Business Intelligence</h3>
-                <p>Desarrollo e implementación de tableros interactivos e indicadores de gestión en Power BI, Excel avanzado y modelos SQL.</p>
+                <h3>Business Intelligence & Dashboards</h3>
+                <p>Diseño e implementación de tableros dinámicos e interactivos (Power BI, Excel Avanzado) para el monitoreo en tiempo real de KPIs operacionales y financieros.</p>
             </div>
             <div class="service-card">
-                <h3>Automatización Fiscal & Administrativa</h3>
-                <p>Diseño de soluciones automatizadas para optimizar la gestión contable, administrativa y de cumplimiento normativo.</p>
+                <h3>Automatización Fiscal y de Procesos</h3>
+                <p>Desarrollo de scripts, macros y flujos automatizados para la extracción, validación y reporte eficiente de datos fiscales y contables.</p>
             </div>
             <div class="service-card">
-                <h3>Analítica Institucional</h3>
-                <p>Construcción de modelos predictivos y descriptivos orientados a la toma de decisiones estratégicas de alta dirección.</p>
+                <h3>Capacitación & Formación</h3>
+                <p>Cursos especializados e impartición de talleres prácticos de Power BI, Análisis de Datos y Excel para equipos profesionales e instituciones.</p>
             </div>
-            <div class="service-card">
-                <h3>Capacitación Corporativa</h3>
-                <p>Talleres y programas de formación técnica en herramientas de análisis de datos para equipos profesionales.</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;" id="contacto">
-            <h3>¿Requieres una solución analítica a la medida?</h3>
-            <a href="https://wa.me/522226633594" target="_blank" class="btn-contact">💬 Consultar por WhatsApp</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Estudio A · Analytics. Todos los derechos reservados.</p>
+        <p>¿Interesado en optimizar la analítica de tu organización?</p>
+        <div>
+            <a href="https://wa.me/522226633594" target="_blank" class="btn-whatsapp">💬 Contactar por WhatsApp</a>
+            <a href="https://www.linkedin.com/in/miguel-angel-mena-bello-b0655b177" target="_blank" class="btn-linkedin-footer">💼 Conectar en LinkedIn</a>
+        </div>
     </footer>
+
+    <script>
+        function scrollCarousel(trackId, distance) {
+            const track = document.getElementById(trackId);
+            track.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
