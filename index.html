@@ -43,23 +43,35 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
             font-family: 'Cinzel', serif;
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 2px;
             color: var(--text-main);
-            text-decoration: none;
         }
 
-        .logo span {
+        .logo-text span {
             color: var(--accent-atelier);
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             font-weight: 600;
             transition: color 0.3s ease;
         }
@@ -144,7 +156,6 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             text-align: center;
-            position: relative;
         }
 
         .grid-2 {
@@ -220,6 +231,14 @@
             margin-bottom: 1.5rem;
         }
 
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
         .btn-whatsapp {
             background-color: #25D366;
             color: white;
@@ -227,7 +246,24 @@
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
+        }
+
+        .btn-linkedin {
+            background-color: #0A66C2;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-instagram {
+            background-color: #E1306C;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
@@ -240,7 +276,10 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">ESTUDIO <span>A</span></a>
+        <a href="index.html" class="logo-container">
+            <img src="img/Logostudioa.png" alt="Estudio A Logo" class="logo-img">
+            <span class="logo-text">ESTUDIO <span>A</span></span>
+        </a>
         <nav>
             <a href="analytics.html" class="btn-nav-analytics">Analytics</a>
             <a href="atelier.html" class="btn-nav-atelier">Atelier</a>
@@ -287,7 +326,7 @@
         <h2 class="section-title">Pilares Fundamentales</h2>
         <div class="pilares-grid">
             <div class="pilar-item">
-                <h4>Ayuda</h4>
+                <h4>Alma & Ayuda</h4>
                 <p>Dimensión Humana y Social: Compromiso con el impacto positivo, el sentido humano y la empatía activa.</p>
             </div>
             <div class="pilar-item">
@@ -304,7 +343,11 @@
     <footer id="contacto">
         <div class="footer-cta">
             <p style="margin-bottom: 1rem;">¿Tienes un proyecto en mente o requieres consultoría especializada?</p>
-            <a href="https://wa.me/522226633594" target="_blank" class="btn-whatsapp">💬 Contactar por WhatsApp </a>
+            <div class="social-buttons">
+                <a href="https://wa.me/522226633594" target="_blank" class="btn-whatsapp">💬 WhatsApp (222 663 3594)</a>
+                <a href="https://www.linkedin.com/in/miguel-angel-mena-bello-b0655b177" target="_blank" class="btn-linkedin">💼 LinkedIn Analytics</a>
+                <a href="https://www.instagram.com/estudio.con.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-instagram">📸 Instagram Atelier</a>
+            </div>
         </div>
         <p>&copy; 2026 Estudio A. Todos los derechos reservados.</p>
     </footer>
