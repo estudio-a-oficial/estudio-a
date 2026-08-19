@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio A · Analytics & Atelier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-muted: #64748b;
+            --analytics-accent: #0284c7;
+            --analytics-bg: #f0f9ff;
+            --analytics-border: #bae6fd;
+            --atelier-accent: #b45309;
+            --atelier-bg: #fffbebfb;
+            --atelier-border: #fde68a;
+            --dark-brand: #0f172a;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+            --radius-lg: 16px;
+            --radius-md: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-brand);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--dark-brand);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark-brand);
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            background: #e2e8f0;
+            padding: 4px 14px;
+            border-radius: 30px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--dark-brand);
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-analytics {
+            background-color: var(--analytics-accent);
+            color: white;
+        }
+
+        .btn-analytics:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-atelier {
+            background-color: var(--atelier-accent);
+            color: white;
+        }
+
+        .btn-atelier:hover {
+            background-color: #92400e;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 3.5rem 1.5rem;
+        }
+
+        .pillars-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-brand);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pillar-card {
+            background: var(--bg-main);
+            padding: 1.75rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            text-align: left;
+        }
+
+        .pillar-icon {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            display: inline-block;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark-brand);
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Dual Verticals Container */
+        .verticals-container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 868px) {
+            .verticals-container {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+        }
+
+        .vertical-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vertical-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .vertical-analytics::before {
+            background: var(--analytics-accent);
+        }
+
+        .vertical-atelier::before {
+            background: var(--atelier-accent);
+        }
+
+        .vertical-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .vertical-analytics .vertical-badge {
+            background: var(--analytics-bg);
+            color: var(--analytics-accent);
+            border: 1px solid var(--analytics-border);
+        }
+
+        .vertical-atelier .vertical-badge {
+            background: var(--atelier-bg);
+            color: var(--atelier-accent);
+            border: 1px solid var(--atelier-border);
+        }
+
+        .vertical-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-brand);
+            margin-bottom: 1rem;
+        }
+
+        .vertical-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .services-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .services-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .vertical-analytics .services-list li::before {
+            color: var(--analytics-accent);
+        }
+
+        .vertical-atelier .services-list li::before {
+            color: var(--atelier-accent);
+        }
+
+        .services-list li strong {
+            display: block;
+            color: var(--dark-brand);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-brand);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            background: white;
+            color: var(--dark-brand);
+            border: none;
+        }
+
+        .btn-contact:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid #475569;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                Estudio A <span>PILARS</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#origen">Origen</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#atelier">Atelier</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-tag">Dos disciplinas · Un mismo propósito</span>
+        <h1>Donde la precisión de los datos se encuentra con la artesanía en madera.</h1>
+        <p>Soluciones de analítica e inteligencia de negocios para optimizar operaciones, combinadas con la creación de piezas geométricas artesanales con sentido y legado.</p>
+        <div class="hero-buttons">
+            <a href="#analytics" class="btn btn-analytics">📊 Explorar Analytics</a>
+            <a href="#atelier" class="btn btn-atelier">🪵 Explorar Atelier</a>
+        </div>
+    </section>
+
+    <!-- Pillars / Origen -->
+    <section class="pillars-section" id="origen">
+        <div class="pillars-container">
+            <div class="section-header">
+                <h2>El Origen y los Pilares</h2>
+                <p>Estudio A nace del compromiso de construir un legado significativo y auténtico.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <span class="pillar-icon">✨</span>
+                    <h3>Alegría</h3>
+                    <p>Transmitir satisfacción en cada proyecto finalizado, ya sea una herramienta automatizada o una pieza artesanal de madera.</p>
+                </div>
+                <div class="pillar-card">
+                    <span class="pillar-icon">💡</span>
+                    <h3>Aprender</h3>
+                    <p>Fomentar la curiosidad continua, el pensamiento analítico y el desarrollo a través del diseño didáctico e interactivo.</p>
+                </div>
+                <div class="pillar-card">
+                    <span class="pillar-icon">🌿</span>
+                    <h3>Auténtico</h3>
+                    <p>Mantener la honestidad en el proceso, cuidando cada detalle con empatía, precisión técnica y dedicación artesanal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Verticals -->
+    <div class="verticals-container">
+
+        <!-- Analytics Card -->
+        <div class="vertical-card vertical-analytics" id="analytics">
+            <div>
+                <span class="vertical-badge">Business Intelligence & Datos</span>
+                <h2 class="vertical-title">Estudio A · Analytics</h2>
+                <p class="vertical-desc">Transformamos datos complejos en decisiones estratégicas y procesos automatizados para empresas y profesionales.</p>
+                
+                <ul class="services-list">
+                    <li>
+                        <strong>Automatización & Procesos Fiscales</strong>
+                        Flujos optimizados, macros, VBA y consultas SQL para reducir tiempos operativos y eliminar errores manuales.
+                    </li>
+                    <li>
+                        <strong>Business Intelligence & Dashboards</strong>
+                        Diseño de tableros ejecutivos interactivos e indicadores clave (KPIs) en Power BI y Excel Avanzado.
+                    </li>
+                    <li>
+                        <strong>Capacitación & Formación</strong>
+                        Cursos y acompañamiento técnico en herramientas de análisis de datos para equipos de trabajo.
+                    </li>
+                </ul>
+            </div>
+            <a href="#contacto" class="btn btn-analytics" style="text-align: center; justify-content: center; width: 100%;">Solicitar Consultoría</a>
+        </div>
+
+        <!-- Atelier Card -->
+        <div class="vertical-card vertical-atelier" id="atelier">
+            <div>
+                <span class="vertical-badge">Taller Artesanal & Geometría</span>
+                <h2 class="vertical-title">Estudio A · Atelier</h2>
+                <p class="vertical-desc">Diseño y fabricación artesanal de objetos tangibles, material educativo y recuerdos personalizados en madera.</p>
+                
+                <ul class="services-list">
+                    <li>
+                        <strong>Material Didáctico & Tangrams</strong>
+                        Juegos geométricos en madera cortados con precisión para estimular el aprendizaje y la creatividad.
+                    </li>
+                    <li>
+                        <strong>Detalles para Eventos & Celebraciones</strong>
+                        Recuerdos artesanales y tarjetas con códigos QR interactivos para catálogos y recuerdos digitales.
+                    </li>
+                    <li>
+                        <strong>Proyectos a Medida</strong>
+                        Diseño de piezas únicas en madera cortadas, pulidas y personalizadas para clientes e instituciones.
+                    </li>
+                </ul>
+            </div>
+            <a href="#contacto" class="btn btn-atelier" style="text-align: center; justify-content: center; width: 100%;">Cotizar Pieza en Madera</a>
+        </div>
+
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="contact-container">
+            <h2>¿Listo para colaborar?</h2>
+            <p>Ya sea para optimizar los datos de tu organización o encargar un proyecto artesanal personalizado, estamos para escucharte.</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/" class="btn btn-contact" target="_blank" rel="noopener">📱 Contactar por WhatsApp</a>
+                <a href="mailto:contacto@estudio-a.com" class="btn btn-outline">✉️ Enviar Correo Electrónico</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Estudio A · Todos los derechos reservados.</p>
+        <p>Alojado gratuitamente en <a href="https://pages.github.io/" target="_blank" rel="noopener">GitHub Pages</a></p>
+    </footer>
+
+</body>
+</html>
