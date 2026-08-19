@@ -41,126 +41,275 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-main);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             text-decoration: none;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         nav a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             font-weight: 600;
+        }
+
+        .btn-nav-instagram {
+            color: var(--accent-atelier) !important;
+            border: 1px solid var(--accent-atelier);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
         }
 
         .hero-atelier {
             padding: 4rem 5% 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero-atelier h1 {
             font-family: 'Cinzel', serif;
-            color: var(--accent-atelier);
             font-size: 2.5rem;
+            color: var(--accent-atelier);
             margin-bottom: 1rem;
         }
 
-        .container {
-            max-width: 1000px;
+        .section-container {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 3rem 5%;
         }
 
+        /* Carousel Styles */
+        .carousel-wrapper {
+            position: relative;
+            margin-top: 2rem;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-atelier) var(--bg-card);
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-track::-webkit-scrollbar-thumb {
+            background: var(--accent-atelier);
+            border-radius: 4px;
+        }
+
+        .carousel-item {
+            flex: 0 0 300px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .carousel-item-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .carousel-item-content h4 {
+            color: var(--accent-atelier);
+            font-size: 1rem;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--accent-atelier);
+            border: 1px solid var(--accent-atelier);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn.prev { left: -15px; }
+        .carousel-btn.next { right: -15px; }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .service-card {
-            background: var(--bg-card);
-            padding: 1.8rem;
-            border-radius: 12px;
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            border-top: 4px solid var(--accent-atelier);
         }
 
         .service-card h3 {
-            color: var(--accent-atelier);
-            margin-bottom: 0.8rem;
-        }
-
-        .btn-contact {
-            display: inline-block;
-            background: var(--accent-atelier);
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
         footer {
             text-align: center;
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             background-color: #090D16;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .btn-instagram-footer {
+            background-color: #E1306C;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">ESTUDIO <span>A</span></a>
+        <a href="index.html" class="logo-area">
+            <img src="img/LogoEstuidoConnombre.jpg" alt="Estudio A Atelier" class="logo-img">
+        </a>
         <nav>
             <a href="index.html">Inicio</a>
             <a href="analytics.html">Analytics</a>
-            <a href="#contacto">Contacto</a>
+            <a href="https://www.instagram.com/estudio.con.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-nav-instagram">Instagram @estudio.con.a</a>
         </nav>
     </header>
 
     <section class="hero-atelier">
-        <h1>Estudio A · Atelier</h1>
-        <p>Creación tangible, diseño de precisión, prototipado y carpintería artesanal.</p>
+        <h1>Atelier & Diseño en Madera</h1>
+        <p>Fabricación artesanal, material didáctico, estimulación sensorial y dispositivos con precisión de corte en madera noble.</p>
     </section>
 
-    <div class="container">
-        <h2>Líneas de Producción & Soluciones</h2>
+    <!-- Carretera de Proyectos / Galería del Taller -->
+    <div class="section-container">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; text-align: center;">Galería del Taller & Proyectos</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn prev" onclick="scrollCarousel('atelier-track', -300)">❮</button>
+            <div class="carousel-track" id="atelier-track">
+                
+                <div class="carousel-item">
+                    <img src="img/Arco_Barnizado (2).jpg" alt="Arco Barnizado">
+                    <div class="carousel-item-content">
+                        <h4>Arco Barnizado</h4>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/Arco_colchonprueba.jpg" alt="Pruebas de Prototipo">
+                    <div class="carousel-item-content">
+                        <h4>Pruebas de Prototipo</h4>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/LogoEstudioLuz.jpg" alt="Iluminación y Detalles">
+                    <div class="carousel-item-content">
+                        <h4>Diseño y Detalles</h4>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/Memoria-cierra.jpg" alt="Procesos de Sierra y Taller">
+                    <div class="carousel-item-content">
+                        <h4>Proceso de Taller</h4>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/TangramArmado.jpg" alt="Tangram Armado">
+                    <div class="carousel-item-content">
+                        <h4>Tangram Didáctico</h4>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel('atelier-track', 300)">❯</button>
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 style="font-family: 'Cinzel', serif; font-size: 1.8rem; text-align: center; margin-bottom: 2rem;">Líneas de Producción</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Material Didáctico</h3>
-                <p>Diseño y fabricación de herramientas educativas de alta precisión (como tangrams artesanales en madera) orientadas al estimulo cognitivo e inclusivo.</p>
+                <h3>Material Didáctico Inclusivo</h3>
+                <p>Diseño y construcción de tangrams, puzzles y herramientas de desarrollo cognitivo concebidas con enfoque en inclusión y diversidad sensorial.</p>
             </div>
             <div class="service-card">
-                <h3>Dispositivos de Taller & Precisión</h3>
-                <p>Optimización de corte y automatización de procesos mediante guías y accesorios a medida para herramientas de taller.</p>
+                <h3>Fabricación con Corte de Precisión</h3>
+                <p>Procesos asistidos por dispositivos de corte exacto para la producción en serie con acabado artesanal y barnizado de alta calidad.</p>
             </div>
             <div class="service-card">
-                <h3>Prototipado & Carpintería Bajo Demanda</h3>
-                <p>Producción de piezas artesanales decorativas, objetos promocionales y proyectos de madera personalizados.</p>
+                <h3>Prototipado a Medida</h3>
+                <p>Creación de piezas únicas, elementos decorativos y soluciones funcionales en madera desarrolladas en colaboración directa con el cliente.</p>
             </div>
-            <div class="service-card">
-                <h3>Integración Digital (QR)</h3>
-                <p>Inclusión de tecnologías ágiles para eventos y productos (tarjetas de presentación físicas con enlaces directos a catálogos en línea).</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;" id="contacto">
-            <h3>¿Te interesa encargar material didáctico o piezas artesanales?</h3>
-            <a href="https://wa.me/522226633594" target="_blank" class="btn-contact">💬 Solicitar Información por WhatsApp</a>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Estudio A · Atelier. Todos los derechos reservados.</p>
+        <p>¿Quieres consultar catálogo o encargar piezas personalizadas?</p>
+        <div>
+            <a href="https://wa.me/522226633594" target="_blank" class="btn-whatsapp">💬 Pedidos por WhatsApp</a>
+            <a href="https://www.instagram.com/estudio.con.a?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-instagram-footer">📸 Galería en Instagram</a>
+        </div>
     </footer>
+
+    <script>
+        function scrollCarousel(trackId, distance) {
+            const track = document.getElementById(trackId);
+            track.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
